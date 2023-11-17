@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "881258448510",
+    "project_id": "morningmovies-5c311",
+    "storage_bucket": "morningmovies-5c311.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:881258448510:android:0b6653b95e34c929047a2f",
+        "android_client_info": {
+          "package_name": "com.example.hello_world"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJpnjlWVESM2FxSItVFm5LzV7W6qqI94U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

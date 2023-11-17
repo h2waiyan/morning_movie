@@ -25,17 +25,22 @@ class MovieRow extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                             builder: (context) => DetailsPage(
+                                  title: title,
                                   movieid: movieList[index].id!,
                                   movieTitle: movieList[index].title!,
+                                  poster: movieList[index].posterPath!,
                                 )));
                   },
                   child: Column(
                     children: [
-                      Image(
-                        width: 100,
-                        height: 150,
-                        image: NetworkImage(
-                            'http://image.tmdb.org/t/p/w500${movieList[index].posterPath}'),
+                      Hero(
+                        tag: "$title-${movieList[index].id}",
+                        child: Image(
+                          width: 100,
+                          height: 150,
+                          image: NetworkImage(
+                              'http://image.tmdb.org/t/p/w500${movieList[index].posterPath}'),
+                        ),
                       ),
                       Text('${movieList[index].title}')
                     ],

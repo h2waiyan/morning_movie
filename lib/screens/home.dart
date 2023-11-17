@@ -37,7 +37,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(title: const Text("Awesome MovieDB")),
       body: Center(
-        child: Column(children: [
+        child: ListView(children: [
           MovieRow(
             movieList: popList,
             title: "Popular Movies",

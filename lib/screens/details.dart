@@ -4,10 +4,16 @@ import 'package:hello_world/models/cast.dart';
 
 class DetailsPage extends StatefulWidget {
   const DetailsPage(
-      {super.key, required this.movieid, required this.movieTitle});
+      {super.key,
+      required this.movieid,
+      required this.title,
+      required this.movieTitle,
+      required this.poster});
 
   final int movieid;
   final String movieTitle;
+  final String poster;
+  final String title;
 
   @override
   State<DetailsPage> createState() => _DetailsPageState();
@@ -31,15 +37,33 @@ class _DetailsPageState extends State<DetailsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text(widget.movieTitle)),
-      body: Center(
-          child: castList.isEmpty
-              ? const CircularProgressIndicator()
-              : ListView.builder(itemBuilder: ((context, index) {
-                  return CircleAvatar(
-                    backgroundImage: NetworkImage(
-                        'http://image.tmdb.org/t/p/w500${castList[index].profilePath}'),
-                  );
-                }))),
+      body: Column(
+        children: [
+          Hero(
+            tag: "${widget.title}-${widget.movieid}",
+            child: Image(
+              width: 100,
+              height: 150,
+              image: NetworkImage(
+                  'http://image.tmdb.org/t/p/w500${widget.poster}'),
+            ),
+          ),
+          Center(
+              child: castList.isEmpty
+                  ? const CircularProgressIndicator()
+                  : Container(
+                      height: 150,
+                      child: ListView.builder(
+                          scrollDirection: Axis.horizontal,
+                          itemBuilder: ((context, index) {
+                            return CircleAvatar(
+                              backgroundImage: NetworkImage(
+                                  'http://image.tmdb.org/t/p/w500${castList[index].profilePath}'),
+                            );
+                          })),
+                    )),
+        ],
+      ),
     );
   }
 }
