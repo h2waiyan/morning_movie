@@ -1,8 +1,10 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
 import 'package:hello_world/api/movie.dart';
 import 'package:hello_world/components/movie_row.dart';
 import 'package:hello_world/models/movie.dart';
+import 'package:hello_world/screens/fav.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -35,7 +37,17 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Awesome MovieDB")),
+      appBar: AppBar(
+        title: const Text("Awesome MovieDB"),
+        actions: [
+          IconButton(
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const FavPage()));
+              },
+              icon: const Icon(Icons.favorite))
+        ],
+      ),
       body: Center(
         child: ListView(children: [
           MovieRow(

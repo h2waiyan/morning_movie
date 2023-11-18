@@ -23,17 +23,13 @@ class _VerifyPageState extends State<VerifyPage> {
               onPressed: () async {
                 User? currentUser = FirebaseAuth.instance.currentUser;
 
-                print(currentUser);
                 await currentUser!.reload();
                 currentUser = FirebaseAuth.instance.currentUser;
 
-                print(currentUser);
-                print(currentUser!.emailVerified);
-
                 if (currentUser!.emailVerified == true) {
-                  print(">>>>>");
+                  print(">> Go to next screen");
                 } else {
-                  print("error");
+                  print("Show Error Message");
                 }
                 // currentUser.emailVerified
               },

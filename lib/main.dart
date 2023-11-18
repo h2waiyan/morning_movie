@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:hello_world/screens/home.dart';
+import 'package:hello_world/screens/login.dart';
 import 'package:hello_world/screens/reg.dart';
 import 'firebase_options.dart';
 
@@ -19,12 +20,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const Register(),
+      home: const HomePage(),
     );
   }
 }
